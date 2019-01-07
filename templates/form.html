@@ -1,0 +1,18 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf%}
+
+{% block title %}
+virt-vm-form
+{% endblock%}
+{%block content%}
+<div class="container">
+<h1>Formularia da VM</h1>
+<form method="POST" action="{{ url_for('create') }}">
+    {{ form.csrf_token }}
+    {{ wtf.form_field(form.hostname, placeholder="Ex: windows10") }}
+    {{ wtf.form_field(form.memory, placeholder="Ex: 1024(MB)") }}
+    {{ wtf.form_field(form.cpu, placeholder="Ex: 1") }}
+    <input type="submit" class="btn btn-primary" value="Submit">
+</form>
+</div>
+{% endblock%}
